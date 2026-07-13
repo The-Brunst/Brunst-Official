@@ -169,9 +169,9 @@ export function Partners({ onNavigate }: PartnersProps) {
             maxWidth: "680px",
             display: "flex",
             flexDirection: "column",
-            gap: "1.2rem",
+            gap: "1.6rem",
             textAlign: "center",
-            padding: "0.5rem 0",
+            padding: "2rem 1.5rem",
           }}
         >
           {/* Prominent Lead-in */}

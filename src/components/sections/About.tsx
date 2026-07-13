@@ -149,7 +149,7 @@ export function About({ onNavigate }: AboutProps) {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-                padding: "1.8rem 1rem",
+                padding: "2.5rem 1.5rem",
                 borderBottom: i < cards.length - 1
                   ? "1px solid rgba(64, 110, 233, 0.08)"
                   : "none",
@@ -190,7 +190,7 @@ export function About({ onNavigate }: AboutProps) {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "0.55rem",
+                  gap: "0.8rem",
                   alignItems: "center",
                 }}
               >

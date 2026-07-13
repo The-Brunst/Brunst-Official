@@ -204,15 +204,16 @@ body *, body *::before, body *::after {
 
 /* RV Nav Buttons (on Hero) */
 .rv-nav-btn {
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 68px;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
   color: var(--text-primary);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--font-rajdhani), sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.25em !important;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
