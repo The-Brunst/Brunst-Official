@@ -81,30 +81,18 @@ const cards = [
 
 export function About({ onNavigate }: AboutProps) {
   return (
-    <section className="relative w-full min-h-screen flex flex-col overflow-hidden">
-      <RVBackground />
-
-      {/* Logo */}
-      <motion.div
-        className="flex justify-center pt-12 pb-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <RVLogo />
-      </motion.div>
-
+    <div className="flex flex-col items-center w-full">
       {/* Content */}
-      <div className="flex flex-col items-center px-6 pb-6 w-full">
+      <div className="flex flex-col items-center w-full">
         {/* Back button */}
         <motion.button
           onClick={() => onNavigate("")}
-          className="rv-pill-btn mb-10"
+          className="rv-pill-btn mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          ← BACK
+          &larr; BACK
         </motion.button>
 
         {/* Section header */}
@@ -212,12 +200,9 @@ export function About({ onNavigate }: AboutProps) {
             </motion.div>
           ))}
         </div>
-        {/* Footer sits naturally here, right below the cards */}
-        <div style={{ marginTop: "3rem", width: "100%" }}>
-          <RVFooter onNavigate={onNavigate} />
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
+
 

@@ -75,21 +75,9 @@ const sections = [
 
 export function Privacy({ onNavigate }: PrivacyProps) {
   return (
-    <section className="relative w-full min-h-screen flex flex-col overflow-hidden">
-      <RVBackground />
-
-      {/* Logo */}
-      <motion.div
-        className="flex justify-center pt-12 pb-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <RVLogo />
-      </motion.div>
-
+    <div className="flex flex-col items-center w-full">
       {/* Content */}
-      <div className="flex flex-col items-center px-6 pb-6 w-full">
+      <div className="flex flex-col items-center w-full">
         {/* Back button */}
         <motion.button
           onClick={() => onNavigate("")}
@@ -228,12 +216,9 @@ export function Privacy({ onNavigate }: PrivacyProps) {
             ))}
           </div>
         </div>
-        {/* Footer sits naturally here */}
-        <div style={{ marginTop: "3.5rem", width: "100%" }}>
-          <RVFooter onNavigate={onNavigate} />
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
+
 
