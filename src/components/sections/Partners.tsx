@@ -301,3 +301,4 @@ export function Partners({ onNavigate }: PartnersProps) {
     </section>
   );
 }
+

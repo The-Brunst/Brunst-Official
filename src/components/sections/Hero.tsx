@@ -78,15 +78,16 @@ export function Hero({ onNavigate }: HeroProps) {
           </span>
         </motion.p>
 
-        {/* 2×2 Nav buttons */}
+        {/* 2×2 Nav buttons — flex-wrap so they naturally reflow on mobile (rosberg.ventures approach) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "0.75rem",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
             marginBottom: "2.5rem",
           }}
         >
@@ -110,3 +111,4 @@ export function Hero({ onNavigate }: HeroProps) {
     </section>
   );
 }
+

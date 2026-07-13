@@ -46,10 +46,23 @@ export default function Home() {
       <AnimatePresence mode="wait">
         <motion.div
           key={activeHash}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          initial={{ opacity: 0, scale: 0.9438 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: {
+              opacity: { duration: 0.375, ease: "easeInOut", delay: 0.1875 },
+              scale:   { duration: 0.375, ease: "easeInOut", delay: 0.1875 },
+            },
+          }}
+          exit={{
+            opacity: 0,
+            scale: 0.9438,
+            transition: {
+              opacity: { duration: 0.1875, ease: "easeInOut" },
+              scale:   { duration: 0.1875, ease: "easeInOut" },
+            },
+          }}
           style={{ minHeight: "100vh" }}
         >
           {renderSection()}
@@ -58,3 +71,4 @@ export default function Home() {
     </main>
   );
 }
+

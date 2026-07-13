@@ -535,3 +535,4 @@ export function Contact({ onNavigate }: ContactProps) {
     </section>
   );
 }
+

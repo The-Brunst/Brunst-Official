@@ -236,3 +236,4 @@ export function Privacy({ onNavigate }: PrivacyProps) {
     </section>
   );
 }
+

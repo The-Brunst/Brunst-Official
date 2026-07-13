@@ -203,9 +203,10 @@ body *, body *::before, body *::after {
 }
 
 /* RV Nav Buttons (on Hero) */
+/* Fixed width so buttons naturally wrap on small screens — same approach as rosberg.ventures */
 .rv-nav-btn {
-  width: 300px;
-  height: 68px;
+  width: 10.5rem;
+  height: 2.75rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
@@ -220,6 +221,9 @@ body *, body *::before, body *::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .rv-nav-btn:hover {
   border-color: var(--accent);
@@ -473,3 +477,4 @@ html.lenis {
   color: var(--accent);
   margin: 0 auto;
 }
+

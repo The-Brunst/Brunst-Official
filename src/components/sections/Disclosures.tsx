@@ -144,3 +144,4 @@ export function Disclosures({ onNavigate }: DisclosuresProps) {
     </section>
   );
 }
+
