@@ -1,26 +1,474 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Blue (#406ee9) ── */
+  --blue:            #406ee9;           /* 100% blue */
+  --blue-80:         rgba(64,110,233,0.8);
+  --blue-50:         rgba(64,110,233,0.5);
+  --blue-30:         rgba(64,110,233,0.3);
+  --blue-15:         rgba(64,110,233,0.15);
+  --blue-08:         rgba(64,110,233,0.08);
+
+  /* ── White (#ffffff) ── */
+  --white:           #ffffff;           /* 100% white */
+  --white-70:        rgba(255,255,255,0.7);
+  --white-40:        rgba(255,255,255,0.4);
+  --white-15:        rgba(255,255,255,0.15);
+  --white-08:        rgba(255,255,255,0.08);
+
+  /* ── Semantic aliases (still blue/white only) ── */
+  --accent:          var(--blue);
+  --accent-dim:      var(--blue-30);
+  --accent-glow:     var(--blue-15);
+  --border-accent:   var(--blue-30);
+  --border-dim:      var(--white-08);
+  --text-primary:    var(--white);
+  --text-secondary:  var(--white-70);
+  --text-muted:      var(--white-40);
+
+  /* ── Backgrounds — deep tinted blue ── */
+  --bg-primary:      #05091a;          /* #406ee9 at ~2% lightness */
+  --bg-secondary:    #090f28;          /* slightly lighter */
+
+  /* ── Typography ── */
+  --font-display:    'Cormorant Garamond', Georgia, serif;
+  --font-body:       'Libre Baskerville', Georgia, serif;
+
+  /* Active font — defaults to Libre Baskerville */
+  --font-active: var(--font-body);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 112%; /* Scale up all rem values by 12% */
+  font-family: var(--font-active);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-active);
+  font-weight: 700; /* Bolder text across all modules */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Font switcher — toggled by data-font on <html> */
+html[data-font="cormorant"] {
+  --font-active: 'Cormorant Garamond', Georgia, serif;
+  font-size: 125%; /* Cormorant is naturally smaller/thinner, so scale it up more */
+}
+html[data-font="cormorant"] body {
+  font-weight: 700; /* Max bold weight for Cormorant */
+}
+html[data-font="baskerville"] {
+  --font-active: 'Libre Baskerville', Georgia, serif;
+  font-size: 112%; /* Baskerville base scale */
+}
+html[data-font="baskerville"] body {
+  font-weight: 700; /* Max bold weight for Baskerville */
+}
+
+/* Force all elements to inherit the active font and weight from body */
+body *, body *::before, body *::after {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+}
+
+/* Blue right edge glow - signature effect from live site */
+.blue-edge-glow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--accent) 30%,
+    var(--accent) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 30px 15px rgba(0, 100, 255, 0.35),
+    0 0 80px 30px rgba(0, 60, 255, 0.2);
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* Left edge glow */
+.blue-left-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(64, 110, 233, 0.3) 30%,
+    rgba(64, 110, 233, 0.3) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 25px 12px rgba(0, 80, 200, 0.25);
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-dim);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Cyan text utility */
+.text-accent {
+  color: var(--accent);
+}
+
+/* Cyan border utility */
+.border-accent {
+  border-color: var(--accent);
+}
+
+/* RV Section container */
+.rv-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* RV Pill Button (BACK, nav buttons) */
+.rv-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.rv-pill-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* RV Nav Buttons (on Hero) */
+.rv-nav-btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rv-nav-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 20px rgba(64, 110, 233, 0.12);
+}
+
+/* Section heading pattern: subtitle + main */
+.rv-section-eyebrow {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+.rv-section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* Cyan horizontal divider */
+.rv-divider {
+  width: 100%;
+  max-width: 520px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-dim), transparent);
+  margin: 1.5rem auto;
+}
+
+/* Input field - pill style */
+.rv-input {
+  width: 100%;
+  background: rgba(0, 20, 50, 0.6);
+  border: 1px solid var(--border-accent);
+  border-radius: 9999px;
+  padding: 1rem 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+}
+.rv-input::placeholder {
+  color: rgba(64, 110, 233, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.rv-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(64, 110, 233, 0.1);
+  color: var(--text-primary);
+}
+
+/* Textarea - same as input but not pill */
+.rv-textarea {
+  width: 100%;
+  background: rgba(0, 20, 50, 0.6);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  min-height: 140px;
+}
+.rv-textarea::placeholder {
+  color: rgba(64, 110, 233, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.rv-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(64, 110, 233, 0.1);
+  color: var(--text-primary);
+}
+
+/* Select - pill style */
+.rv-select {
+  width: 100%;
+  background: rgba(0, 20, 50, 0.6);
+  border: 1px solid var(--border-accent);
+  border-radius: 9999px;
+  padding: 1rem 3rem 1rem 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.3s ease;
+}
+.rv-select:focus {
+  border-color: var(--accent);
+}
+.rv-select option {
+  background: #0a1428;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+/* Partner logo card */
+.rv-partner-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
+}
+.rv-partner-card:hover {
+  opacity: 1;
+}
+
+/* Glass panel for content */
+.rv-glass {
+  background: rgba(0, 20, 50, 0.3);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* Prose text in legal pages */
+.rv-prose {
+  font-size: 0.75rem;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Submit button */
+.rv-submit-btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 9999px;
+  padding: 0.8rem 3rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.rv-submit-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 30px rgba(64, 110, 233, 0.3);
+}
+.rv-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Checkbox */
+.rv-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+.rv-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border-accent);
+  border-radius: 3px;
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.rv-checkbox.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.rv-checkbox-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Lenis smooth scroll */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Media article row hover line */
+.rv-media-row {
+  border-bottom: 1px solid rgba(64, 110, 233, 0.1);
+  padding: 1.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.rv-media-row:hover {
+  border-bottom-color: var(--accent-dim);
+}
+.rv-media-row:first-child {
+  border-top: 1px solid rgba(64, 110, 233, 0.1);
+}
+
+/* About card */
+.rv-about-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Icon box */
+.rv-icon-box {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin: 0 auto;
 }
