@@ -10,23 +10,23 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "Brunst Studios | Backing the Greatest Startup Innovations",
+  title: "Brunst Studios | Bringing together the world’s creative diversity",
   description:
-    "Brunst Studios commits to investing in the world's top-tier venture capital funds and co-investing in high-growth technology startups.",
+    "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
   metadataBase: new URL("https://brunst.studios"),
   openGraph: {
-    title: "Brunst Studios | Backing the Greatest Startup Innovations",
+    title: "Brunst Studios | Bringing together the world’s creative diversity",
     description:
-      "Brunst Studios commits to investing in the world's top-tier venture capital funds and co-investing in high-growth technology startups.",
+      "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
     siteName: "Brunst Studios",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brunst Studios | Backing the Greatest Startup Innovations",
+    title: "Brunst Studios | Bringing together the world’s creative diversity",
     description:
-      "Brunst Studios commits to investing in the world's top-tier venture capital funds and co-investing in high-growth technology startups.",
+      "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
   },
 };
 
