@@ -53,17 +53,19 @@ export function Media({ onNavigate }: MediaProps) {
           className="text-center mb-2"
           style={{ maxWidth: "800px" }}
         >
-          <p className="rv-section-eyebrow" style={{ textTransform: "none", fontSize: "0.8rem" }}>
-            All shot through an iPhone, but with a heart full of passion!
-          </p>
           <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem" }}>
             BRUNSTCAM
           </h2>
+          <p style={{ textTransform: "none", fontSize: "0.85rem", fontWeight: 600, letterSpacing: "0.06em", lineHeight: 1.9, color: "#fffef1", margin: "0.5rem 0 0" }}>
+            All shot through iPhone,
+            <br />
+            But, with a heart full of passion!
+          </p>
         </motion.div>
 
         {/* Divider */}
         <motion.div
-          className="rv-divider"
+          className="rv-divider !my-3"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.35 }}
@@ -78,7 +80,7 @@ export function Media({ onNavigate }: MediaProps) {
             flexDirection: "column",
             gap: "1.6rem",
             textAlign: "center",
-            padding: "2rem 1.5rem",
+            padding: "0.75rem 1.5rem 2rem",
           }}
         >
           {[
@@ -111,11 +113,11 @@ export function Media({ onNavigate }: MediaProps) {
                   fontWeight: 700,
                   lineHeight: 1.75,
                   letterSpacing: "0.06em",
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 254, 241, 0.7)",
                 }}
               >
                 {parts[0]}
-                <span style={{ color: "#ffffff" }}>{para.highlight}</span>
+                <span style={{ color: "#fffef1" }}>{para.highlight}</span>
                 {parts[1]}
               </motion.p>
             );
@@ -133,26 +135,26 @@ export function Media({ onNavigate }: MediaProps) {
               style={{
                 marginTop: "1.5rem",
                 background: "transparent",
-                border: "1px solid #406ee9",
+                border: "1px solid #516fc7",
                 borderRadius: "9999px",
                 padding: "0.7rem 1.8rem",
                 fontSize: "0.7rem",
                 fontWeight: 700,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                color: "#ffffff",
+                color: "#fffef1",
                 cursor: "pointer",
-                boxShadow: "0 0 15px rgba(64, 110, 233, 0.1)",
+                boxShadow: "0 0 15px rgba(81, 111, 199, 0.1)",
               }}
               whileHover={{
-                borderColor: "#ffffff",
-                boxShadow: "0 0 25px rgba(64, 110, 233, 0.35)",
+                borderColor: "#fffef1",
+                boxShadow: "0 0 25px rgba(81, 111, 199, 0.35)",
                 scale: 1.02,
               }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              Connect with us now, and book a trail for Brunstcam!
+              Connect with us now to book a free trial.
             </motion.button>
           </motion.div>
         </div>

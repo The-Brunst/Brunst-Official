@@ -104,7 +104,7 @@ export function Privacy({ onNavigate }: PrivacyProps) {
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "rgba(64,110,233,0.5)",
+              color: "rgba(81,111,199,0.5)",
               marginTop: "0.5rem",
             }}
           >
@@ -147,7 +147,7 @@ export function Privacy({ onNavigate }: PrivacyProps) {
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "rgba(64,110,233,0.5)",
+                color: "rgba(81,111,199,0.5)",
                 marginBottom: "1rem",
               }}
             >
@@ -168,13 +168,13 @@ export function Privacy({ onNavigate }: PrivacyProps) {
                       fontWeight: 700,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.35)",
+                      color: "rgba(255,254,241,0.35)",
                       textAlign: "left",
                       width: "100%",
                       transition: "color 0.2s",
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = "#406ee9"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.35)"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = "#516fc7"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,254,241,0.35)"; }}
                   >
                     {s.title}
                   </button>
@@ -194,7 +194,7 @@ export function Privacy({ onNavigate }: PrivacyProps) {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.05 }}
                 style={{
-                  borderBottom: "1px solid rgba(64,110,233,0.08)",
+                  borderBottom: "1px solid rgba(81,111,199,0.08)",
                   paddingBottom: "1.5rem",
                   scrollMarginTop: "4rem",
                 }}
@@ -205,7 +205,7 @@ export function Privacy({ onNavigate }: PrivacyProps) {
                     fontWeight: 700,
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    color: "#406ee9",
+                    color: "#516fc7",
                     marginBottom: "0.75rem",
                   }}
                 >

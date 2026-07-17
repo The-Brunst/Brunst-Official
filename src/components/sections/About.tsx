@@ -100,17 +100,25 @@ export function About({ onNavigate }: AboutProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-center mb-2"
+          className="text-center mb-1"
         >
           <p className="rv-section-eyebrow">Write. Create. Play. Design</p>
-          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.2rem, 3.2vw, 1.85rem)", lineHeight: 1.3 }}>
+          <h2
+            className="rv-section-title"
+            style={{
+              fontSize: "clamp(1.1rem, 3.5vw, 1.6rem)",
+              lineHeight: 1.3,
+              whiteSpace: "nowrap",
+              color: "#fffef1",
+            }}
+          >
             WE ARE HOME TO A WORLD OF FIELDS
           </h2>
         </motion.div>
 
         {/* Divider */}
         <motion.div
-          className="rv-divider"
+          className="rv-divider !my-3"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.35 }}
@@ -137,49 +145,50 @@ export function About({ onNavigate }: AboutProps) {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-                padding: "2.5rem 1.5rem",
+                padding: "1rem 1.5rem",
+                gap: "0.75rem",
                 borderBottom: i < cards.length - 1
-                  ? "1px solid rgba(64, 110, 233, 0.08)"
+                  ? "1px solid rgba(81, 111, 199, 0.08)"
                   : "none",
               }}
             >
-              {/* Icon */}
-              <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  border: "1px solid rgba(64, 110, 233, 0.3)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#406ee9",
-                  marginBottom: "1rem",
-                }}
-              >
-                {card.icon}
+              {/* Top row: icon + title side by side */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem" }}>
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    flexShrink: 0,
+                    border: "1px solid rgba(81, 111, 199, 0.3)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#516fc7",
+                  }}
+                >
+                  {card.icon}
+                </div>
+                <h3
+                  style={{
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#516fc7",
+                    margin: 0,
+                  }}
+                >
+                  {card.title}
+                </h3>
               </div>
 
-              {/* Title */}
-              <h3
-                style={{
-                  fontSize: "0.95rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#406ee9",
-                  marginBottom: "1rem",
-                }}
-              >
-                {card.title}
-              </h3>
-
-              {/* Services List */}
+              {/* Services List — below icon+title row */}
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "0.8rem",
                   alignItems: "center",
+                  gap: "0.55rem",
                 }}
               >
                 {card.services.map((service) => (
@@ -190,7 +199,7 @@ export function About({ onNavigate }: AboutProps) {
                       fontWeight: 700,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "rgba(255, 255, 255, 0.75)",
+                      color: "rgba(255, 254, 241, 0.75)",
                     }}
                   >
                     {service}

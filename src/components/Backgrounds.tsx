@@ -32,7 +32,7 @@ export function RVBackground() {
         <source src="/bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark blue overlay — derived from #406ee9 at very low lightness */}
+      {/* Dark blue overlay — derived from #516fc7 at very low lightness */}
       <div
         style={{
           position: "absolute",

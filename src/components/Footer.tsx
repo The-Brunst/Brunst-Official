@@ -57,12 +57,12 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
           fontWeight: 700,
           letterSpacing: "0.15em",
           textTransform: "uppercase",
-          color: "#406ee9",
+          color: "#516fc7",
           transition: "color 0.2s, opacity 0.2s",
           padding: 0,
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.color = "#406ee9"; }}
+        onMouseEnter={(e) => { e.currentTarget.style.color = "#fffef1"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.color = "#516fc7"; }}
       >
         SFDR DISCLOSURE
       </button>
@@ -78,12 +78,12 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
           fontWeight: 700,
           letterSpacing: "0.15em",
           textTransform: "uppercase",
-          color: "#406ee9",
+          color: "#516fc7",
           transition: "color 0.2s, opacity 0.2s",
           padding: 0,
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.color = "#406ee9"; }}
+        onMouseEnter={(e) => { e.currentTarget.style.color = "#fffef1"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.color = "#516fc7"; }}
       >
         PRIVACY
       </button>
@@ -96,13 +96,13 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#406ee9",
+            color: "#516fc7",
             transition: "color 0.2s, scale 0.2s",
             display: "flex",
             alignItems: "center",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = "#406ee9"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "#fffef1"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "#516fc7"; }}
         >
           <PlusIcon />
         </a>
@@ -113,13 +113,13 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#406ee9",
+            color: "#516fc7",
             transition: "color 0.2s, scale 0.2s",
             display: "flex",
             alignItems: "center",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = "#406ee9"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "#fffef1"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "#516fc7"; }}
         >
           <LinkedInIcon />
         </a>

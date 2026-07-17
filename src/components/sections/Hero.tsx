@@ -38,16 +38,13 @@ export function Hero({ onNavigate }: HeroProps) {
           textTransform: "uppercase",
           textAlign: "center",
           lineHeight: 1.65,
-          color: "#406ee9",
+          color: "#fffef1",
           maxWidth: "750px",
           marginBottom: "1.75rem",
           fontWeight: 700,
         }}
       >
-        BRINGING TOGETHER THE WORLD’S{" "}
-        <span style={{ color: "#ffffff", fontWeight: 700 }}>
-          CREATIVE DIVERSITY
-        </span>
+        BRINGING TOGETHER THE WORLD’S CREATIVE DIVERSITY
       </motion.p>
 
       {/* 2×2 Nav buttons — flex-wrap so they naturally reflow on mobile (rosberg.ventures approach) */}

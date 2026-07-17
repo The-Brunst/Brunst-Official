@@ -67,7 +67,7 @@ export function Disclosures({ onNavigate }: DisclosuresProps) {
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "rgba(64,110,233,0.5)",
+              color: "rgba(81,111,199,0.5)",
               marginTop: "0.5rem",
             }}
           >
@@ -103,7 +103,7 @@ export function Disclosures({ onNavigate }: DisclosuresProps) {
               transition={{ duration: 0.6, delay: i * 0.08 }}
               style={{
                 background: "rgba(0,20,50,0.35)",
-                border: "1px solid rgba(64,110,233,0.12)",
+                border: "1px solid rgba(81,111,199,0.12)",
                 borderRadius: "12px",
                 padding: "1.5rem 1.75rem",
               }}
@@ -114,7 +114,7 @@ export function Disclosures({ onNavigate }: DisclosuresProps) {
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "#406ee9",
+                  color: "#516fc7",
                   marginBottom: "0.75rem",
                 }}
               >

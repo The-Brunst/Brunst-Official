@@ -62,10 +62,10 @@ export function Contact({ onNavigate }: ContactProps) {
   const inputStyle: React.CSSProperties = {
     width: "100%",
     background: "rgba(0, 20, 50, 0.55)",
-    border: "1px solid rgba(64, 110, 233, 0.25)",
+    border: "1px solid rgba(81, 111, 199, 0.25)",
     borderRadius: "9999px",
     padding: "0.9rem 1.5rem",
-    color: "rgba(255,255,255,0.8)",
+    color: "rgba(255,254,241,0.8)",
     fontSize: "0.85rem",
     fontWeight: 600,
     letterSpacing: "0.12em",
@@ -97,17 +97,14 @@ export function Contact({ onNavigate }: ContactProps) {
           className="text-center mb-2"
           style={{ maxWidth: "800px" }}
         >
-          <p className="rv-section-eyebrow" style={{ textTransform: "none", fontSize: "0.8rem" }}>
+          <p style={{ textTransform: "none", fontSize: "0.85rem", fontWeight: 600, letterSpacing: "0.08em", color: "#fffef1" }}>
             A few words from us to you!
           </p>
-          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem" }}>
-            CONNECT US
-          </h2>
         </motion.div>
 
         {/* Divider */}
         <motion.div
-          className="rv-divider mb-6"
+          className="rv-divider !my-3"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.35 }}
@@ -122,7 +119,7 @@ export function Contact({ onNavigate }: ContactProps) {
             flexDirection: "column",
             gap: "1.6rem",
             textAlign: "center",
-            padding: "2rem 1.5rem",
+            padding: "0.75rem 1.5rem 2rem",
             marginBottom: "2rem",
           }}
         >
@@ -147,11 +144,11 @@ export function Contact({ onNavigate }: ContactProps) {
               renderedText = (
                 <>
                   {parts[0]}
-                  <span style={{ color: "#ffffff" }}>{para.highlight}</span>
+                  <span style={{ color: "#fffef1" }}>{para.highlight}</span>
                   {para.highlight2 ? (
                     <>
                       {parts[1].split(para.highlight2)[0]}
-                      <span style={{ color: "#ffffff" }}>{para.highlight2}</span>
+                      <span style={{ color: "#fffef1" }}>{para.highlight2}</span>
                       {parts[1].split(para.highlight2)[1]}
                     </>
                   ) : (
@@ -171,7 +168,7 @@ export function Contact({ onNavigate }: ContactProps) {
                   fontWeight: 700,
                   lineHeight: 1.75,
                   letterSpacing: "0.06em",
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 254, 241, 0.7)",
                 }}
               >
                 {renderedText}
@@ -186,7 +183,7 @@ export function Contact({ onNavigate }: ContactProps) {
             transition={{ duration: 0.6, delay: 0.7 }}
             style={{
               marginTop: "1.5rem",
-              borderTop: "1px solid rgba(64, 110, 233, 0.08)",
+              borderTop: "1px solid rgba(81, 111, 199, 0.08)",
               paddingTop: "1.5rem",
             }}
           >
@@ -196,7 +193,7 @@ export function Contact({ onNavigate }: ContactProps) {
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#406ee9",
+                color: "#516fc7",
                 marginBottom: "0.5rem",
               }}
             >
@@ -208,7 +205,7 @@ export function Contact({ onNavigate }: ContactProps) {
                 fontWeight: 700,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.75)",
+                color: "rgba(255,254,241,0.75)",
               }}
             >
               As a client, friend, author, sponsor, or as a team member!
@@ -234,7 +231,7 @@ export function Contact({ onNavigate }: ContactProps) {
               fontWeight: 700,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#406ee9",
+              color: "#516fc7",
             }}
           >
             Connect Now!
@@ -263,8 +260,8 @@ export function Contact({ onNavigate }: ContactProps) {
                     onChange={handleChange}
                     placeholder="NAME"
                     style={inputStyle}
-                    onFocus={(e) => { e.target.style.borderColor = "#406ee9"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "rgba(64, 110, 233, 0.25)"; }}
+                    onFocus={(e) => { e.target.style.borderColor = "#516fc7"; }}
+                    onBlur={(e) => { e.target.style.borderColor = "rgba(81, 111, 199, 0.25)"; }}
                   />
                   {errors.name && (
                     <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#ff4444", letterSpacing: "0.1em", marginTop: "0.3rem", paddingLeft: "1.5rem" }}>
@@ -282,8 +279,8 @@ export function Contact({ onNavigate }: ContactProps) {
                     onChange={handleChange}
                     placeholder="EMAIL"
                     style={inputStyle}
-                    onFocus={(e) => { e.target.style.borderColor = "#406ee9"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "rgba(64, 110, 233, 0.25)"; }}
+                    onFocus={(e) => { e.target.style.borderColor = "#516fc7"; }}
+                    onBlur={(e) => { e.target.style.borderColor = "rgba(81, 111, 199, 0.25)"; }}
                   />
                   {errors.email && (
                     <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#ff4444", letterSpacing: "0.1em", marginTop: "0.3rem", paddingLeft: "1.5rem" }}>
@@ -303,17 +300,17 @@ export function Contact({ onNavigate }: ContactProps) {
                       alignItems: "center",
                       justifyContent: "space-between",
                       cursor: "pointer",
-                      borderColor: dropdownOpen ? "#406ee9" : "rgba(64, 110, 233, 0.25)",
+                      borderColor: dropdownOpen ? "#516fc7" : "rgba(81, 111, 199, 0.25)",
                       textAlign: "left",
                     }}
                   >
-                    <span style={{ color: form.subject ? "rgba(255,255,255,0.8)" : "rgba(64, 110, 233, 0.35)" }}>
+                    <span style={{ color: form.subject ? "rgba(255,254,241,0.8)" : "rgba(81, 111, 199, 0.35)" }}>
                       {form.subject ? form.subject.toUpperCase() : "— SUBJECT —"}
                     </span>
                     <ChevronDown
                       size={14}
                       style={{
-                        color: "#406ee9",
+                        color: "#516fc7",
                         transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
                         transition: "transform 0.3s ease",
                         flexShrink: 0,
@@ -334,7 +331,7 @@ export function Contact({ onNavigate }: ContactProps) {
                           left: 0,
                           right: 0,
                           background: "rgba(5, 15, 40, 0.97)",
-                          border: "1px solid rgba(64, 110, 233, 0.25)",
+                          border: "1px solid rgba(81, 111, 199, 0.25)",
                           borderRadius: "16px",
                           overflow: "hidden",
                           zIndex: 50,
@@ -357,15 +354,15 @@ export function Contact({ onNavigate }: ContactProps) {
                               fontWeight: 600,
                               letterSpacing: "0.12em",
                               textTransform: "uppercase",
-                              color: "rgba(255,255,255,0.65)",
+                              color: "rgba(255,254,241,0.65)",
                               transition: "color 0.2s, background 0.2s",
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.color = "#406ee9";
-                              e.currentTarget.style.background = "rgba(64, 110, 233, 0.05)";
+                              e.currentTarget.style.color = "#516fc7";
+                              e.currentTarget.style.background = "rgba(81, 111, 199, 0.05)";
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.color = "rgba(255,255,255,0.65)";
+                              e.currentTarget.style.color = "rgba(255,254,241,0.65)";
                               e.currentTarget.style.background = "transparent";
                             }}
                           >
@@ -385,7 +382,7 @@ export function Contact({ onNavigate }: ContactProps) {
                       fontWeight: 700,
                       letterSpacing: "0.18em",
                       textTransform: "uppercase",
-                      color: "#406ee9",
+                      color: "#516fc7",
                       marginBottom: "0.5rem",
                       paddingLeft: "0.25rem",
                     }}
@@ -404,8 +401,8 @@ export function Contact({ onNavigate }: ContactProps) {
                       resize: "vertical",
                       minHeight: "120px",
                     }}
-                    onFocus={(e) => { e.target.style.borderColor = "#406ee9"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "rgba(64, 110, 233, 0.25)"; }}
+                    onFocus={(e) => { e.target.style.borderColor = "#516fc7"; }}
+                    onBlur={(e) => { e.target.style.borderColor = "rgba(81, 111, 199, 0.25)"; }}
                   />
                   {errors.message && (
                     <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#ff4444", letterSpacing: "0.1em", marginTop: "0.3rem", paddingLeft: "0.25rem" }}>
@@ -422,21 +419,21 @@ export function Contact({ onNavigate }: ContactProps) {
                       onClick={() => setForm((p) => ({ ...p, acceptPrivacy: !p.acceptPrivacy }))}
                       style={{
                         width: "18px", height: "18px",
-                        border: `1.5px solid ${form.acceptPrivacy ? "#406ee9" : "rgba(64,110,233,0.35)"}`,
+                        border: `1.5px solid ${form.acceptPrivacy ? "#516fc7" : "rgba(81,111,199,0.35)"}`,
                         borderRadius: "50%",
-                        background: form.acceptPrivacy ? "#406ee9" : "transparent",
+                        background: form.acceptPrivacy ? "#516fc7" : "transparent",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         flexShrink: 0, cursor: "pointer", transition: "all 0.2s",
                       }}
                     >
                       {form.acceptPrivacy && <Check size={10} style={{ color: "#000" }} strokeWidth={3} />}
                     </div>
-                    <span style={{ fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
+                    <span style={{ fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,254,241,0.5)" }}>
                       I ACCEPT THE{" "}
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); onNavigate("#privacy"); }}
-                        style={{ background: "none", border: "none", cursor: "pointer", color: "#406ee9", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "underline", padding: 0 }}
+                        style={{ background: "none", border: "none", cursor: "pointer", color: "#516fc7", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "underline", padding: 0 }}
                       >
                         PRIVACY POLICY
                       </button>
@@ -454,16 +451,16 @@ export function Contact({ onNavigate }: ContactProps) {
                       onClick={() => setForm((p) => ({ ...p, subscribeNewsletter: !p.subscribeNewsletter }))}
                       style={{
                         width: "18px", height: "18px",
-                        border: `1.5px solid ${form.subscribeNewsletter ? "#406ee9" : "rgba(64,110,233,0.35)"}`,
+                        border: `1.5px solid ${form.subscribeNewsletter ? "#516fc7" : "rgba(81,111,199,0.35)"}`,
                         borderRadius: "50%",
-                        background: form.subscribeNewsletter ? "#406ee9" : "transparent",
+                        background: form.subscribeNewsletter ? "#516fc7" : "transparent",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         flexShrink: 0, cursor: "pointer", transition: "all 0.2s",
                       }}
                     >
                       {form.subscribeNewsletter && <Check size={10} style={{ color: "#000" }} strokeWidth={3} />}
                     </div>
-                    <span style={{ fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
+                    <span style={{ fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,254,241,0.5)" }}>
                       SUBSCRIBE TO NEWSLETTER
                     </span>
                   </label>
@@ -477,7 +474,7 @@ export function Contact({ onNavigate }: ContactProps) {
                     className="rv-submit-btn"
                   >
                     {submitting ? (
-                      <span style={{ display: "inline-block", width: "14px", height: "14px", border: "2px solid #406ee9", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+                      <span style={{ display: "inline-block", width: "14px", height: "14px", border: "2px solid #516fc7", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
                     ) : "SUBMIT"}
                   </button>
                 </div>
@@ -490,22 +487,22 @@ export function Contact({ onNavigate }: ContactProps) {
                 style={{
                   display: "flex", flexDirection: "column", alignItems: "center",
                   gap: "1.2rem", textAlign: "center",
-                  border: "1px solid rgba(64,110,233,0.2)", borderRadius: "16px",
+                  border: "1px solid rgba(81,111,199,0.2)", borderRadius: "16px",
                   padding: "3rem 2rem", background: "rgba(0,20,50,0.4)",
                 }}
               >
-                <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "#406ee9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "#516fc7", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Check size={24} style={{ color: "#000" }} strokeWidth={2.5} />
                 </div>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff" }}>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#fffef1" }}>
                   MESSAGE SENT
                 </h3>
-                <p style={{ fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.06em", color: "rgba(255,255,255,0.5)", lineHeight: 1.8, maxWidth: "320px" }}>
+                <p style={{ fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.06em", color: "rgba(255,254,241,0.5)", lineHeight: 1.8, maxWidth: "320px" }}>
                   Thank you for your message. We have received your inquiry and will get back to you shortly.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(64,110,233,0.6)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline" }}
+                  style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(81,111,199,0.6)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline" }}
                 >
                   SEND ANOTHER MESSAGE
                 </button>

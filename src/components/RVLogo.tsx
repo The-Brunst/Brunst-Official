@@ -20,12 +20,17 @@ export function RVLogo({ className = "" }: RVLogoProps) {
     >
       {/* Brunst logo image */}
       <Image
-        src="/BRUNST.logo.png"
+        src="/BRUNST.logo.web.png"
         alt="Brunst Studios"
-        width={75}
-        height={75}
+        width={100}
+        height={100}
         priority
-        style={{ width: "75px", height: "75px", objectFit: "contain" }}
+        style={{
+          width: "100px",
+          height: "100px",
+          objectFit: "contain",
+          filter: "brightness(0) saturate(100%) invert(97%) sepia(15%) saturate(400%) hue-rotate(15deg) brightness(102%)",
+        }}
       />
 
       {/* Brand name */}
@@ -42,7 +47,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
-            color: "#406ee9",
+            color: "#516fc7",
           }}
         >
           BRUNST
@@ -53,7 +58,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
-            color: "#406ee9",
+            color: "#516fc7",
           }}
         >
           STUDIOS

@@ -76,8 +76,8 @@ export function CustomCursor() {
           y: ringY,
           width: cursorType === "pointer" ? 44 : cursorType === "text" ? 64 : 20,
           height: cursorType === "pointer" ? 44 : cursorType === "text" ? 64 : 20,
-          backgroundColor: cursorType === "text" ? "rgba(255, 255, 255, 0.95)" : "transparent",
-          borderColor: cursorType === "text" ? "transparent" : cursorType === "pointer" ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.3)",
+          backgroundColor: cursorType === "text" ? "rgba(255, 254, 241, 0.95)" : "transparent",
+          borderColor: cursorType === "text" ? "transparent" : cursorType === "pointer" ? "rgba(255, 254, 241, 0.8)" : "rgba(255, 254, 241, 0.3)",
         }}
         transition={{ type: "spring", stiffness: 200, damping: 25 }}
       >

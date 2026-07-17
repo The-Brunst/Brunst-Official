@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* ── Blue (#406ee9) ── */
-  --blue:            #406ee9;           /* 100% blue */
-  --blue-80:         rgba(64,110,233,0.8);
-  --blue-50:         rgba(64,110,233,0.5);
-  --blue-30:         rgba(64,110,233,0.3);
-  --blue-15:         rgba(64,110,233,0.15);
-  --blue-08:         rgba(64,110,233,0.08);
+  /* ── Blue (#516fc7) ── */
+  --blue:            #516fc7;           /* 100% blue */
+  --blue-80:         rgba(81,111,199,0.8);
+  --blue-50:         rgba(81,111,199,0.5);
+  --blue-30:         rgba(81,111,199,0.3);
+  --blue-15:         rgba(81,111,199,0.15);
+  --blue-08:         rgba(81,111,199,0.08);
 
-  /* ── White (#ffffff) ── */
-  --white:           #ffffff;           /* 100% white */
-  --white-70:        rgba(255,255,255,0.7);
-  --white-40:        rgba(255,255,255,0.4);
-  --white-15:        rgba(255,255,255,0.15);
-  --white-08:        rgba(255,255,255,0.08);
+  /* ── Cream White (#fffef1) ── */
+  --white:           #fffef1;           /* 100% cream white */
+  --white-70:        rgba(255,254,241,0.7);
+  --white-40:        rgba(255,254,241,0.4);
+  --white-15:        rgba(255,254,241,0.15);
+  --white-08:        rgba(255,254,241,0.08);
 
   /* ── Semantic aliases (still blue/white only) ── */
   --accent:          var(--blue);
@@ -27,7 +27,7 @@
   --text-muted:      var(--white-40);
 
   /* ── Backgrounds — deep tinted blue ── */
-  --bg-primary:      #05091a;          /* #406ee9 at ~2% lightness */
+  --bg-primary:      #05091a;          /* #516fc7 at ~2% lightness */
   --bg-secondary:    #090f28;          /* slightly lighter */
 
   /* ── Typography ── */
@@ -41,6 +41,7 @@
 @theme inline {
   --color-background: var(--bg-primary);
   --color-foreground: var(--text-primary);
+  --color-white: var(--white);
 }
 
 *, *::before, *::after {
@@ -130,8 +131,8 @@ body *, body *::before, body *::after {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(64, 110, 233, 0.3) 30%,
-    rgba(64, 110, 233, 0.3) 70%,
+    rgba(81, 111, 199, 0.3) 30%,
+    rgba(81, 111, 199, 0.3) 70%,
     transparent 100%
   );
   box-shadow:
@@ -187,7 +188,7 @@ body *, body *::before, body *::after {
   gap: 0.5rem;
   padding: 0.5rem 1.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 254, 241, 0.3);
   background: transparent;
   color: var(--text-primary);
   font-size: 0.85rem;
@@ -208,7 +209,7 @@ body *, body *::before, body *::after {
   width: 11.5rem;
   height: 3rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 254, 241, 0.35);
   background: transparent;
   color: var(--text-primary);
   font-family: var(--font-rajdhani), sans-serif !important;
@@ -228,7 +229,7 @@ body *, body *::before, body *::after {
 .rv-nav-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 0 20px rgba(64, 110, 233, 0.12);
+  box-shadow: 0 0 20px rgba(81, 111, 199, 0.12);
 }
 
 /* Section heading pattern: subtitle + main */
@@ -276,13 +277,13 @@ body *, body *::before, body *::after {
   -webkit-appearance: none;
 }
 .rv-input::placeholder {
-  color: rgba(64, 110, 233, 0.35);
+  color: rgba(81, 111, 199, 0.35);
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
 .rv-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 15px rgba(64, 110, 233, 0.1);
+  box-shadow: 0 0 15px rgba(81, 111, 199, 0.1);
   color: var(--text-primary);
 }
 
@@ -303,13 +304,13 @@ body *, body *::before, body *::after {
   min-height: 140px;
 }
 .rv-textarea::placeholder {
-  color: rgba(64, 110, 233, 0.35);
+  color: rgba(81, 111, 199, 0.35);
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
 .rv-textarea:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 15px rgba(64, 110, 233, 0.1);
+  box-shadow: 0 0 15px rgba(81, 111, 199, 0.1);
   color: var(--text-primary);
 }
 
@@ -365,7 +366,7 @@ body *, body *::before, body *::after {
   font-size: 0.75rem;
   line-height: 2;
   letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 254, 241, 0.55);
 }
 
 /* Submit button */
@@ -384,7 +385,7 @@ body *, body *::before, body *::after {
 .rv-submit-btn:hover {
   background: var(--accent);
   color: #000;
-  box-shadow: 0 0 30px rgba(64, 110, 233, 0.3);
+  box-shadow: 0 0 30px rgba(81, 111, 199, 0.3);
 }
 .rv-submit-btn:disabled {
   opacity: 0.5;
@@ -418,7 +419,7 @@ body *, body *::before, body *::after {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 254, 241, 0.5);
 }
 
 /* Lenis smooth scroll */
@@ -440,7 +441,7 @@ html.lenis {
 
 /* Media article row hover line */
 .rv-media-row {
-  border-bottom: 1px solid rgba(64, 110, 233, 0.1);
+  border-bottom: 1px solid rgba(81, 111, 199, 0.1);
   padding: 1.5rem 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -453,7 +454,7 @@ html.lenis {
   border-bottom-color: var(--accent-dim);
 }
 .rv-media-row:first-child {
-  border-top: 1px solid rgba(64, 110, 233, 0.1);
+  border-top: 1px solid rgba(81, 111, 199, 0.1);
 }
 
 /* About card */

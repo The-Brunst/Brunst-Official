@@ -58,14 +58,14 @@ export function FontSwitcher() {
         <div
           style={{
             background: "rgba(5, 9, 26, 0.92)",
-            border: "1px solid rgba(64,110,233,0.3)",
+            border: "1px solid rgba(81,111,199,0.3)",
             borderRadius: "12px",
             padding: "0.5rem",
             display: "flex",
             flexDirection: "column",
             gap: "0.25rem",
             backdropFilter: "blur(12px)",
-            boxShadow: "0 8px 32px rgba(64,110,233,0.2)",
+            boxShadow: "0 8px 32px rgba(81,111,199,0.2)",
           }}
         >
           {fonts.map((f) => (
@@ -82,7 +82,7 @@ export function FontSwitcher() {
                 cursor: "pointer",
                 background:
                   active === f.id
-                    ? "rgba(64,110,233,0.25)"
+                    ? "rgba(81,111,199,0.25)"
                     : "transparent",
                 transition: "background 0.2s",
                 width: "100%",
@@ -90,7 +90,7 @@ export function FontSwitcher() {
               }}
               onMouseEnter={(e) =>
                 active !== f.id &&
-                (e.currentTarget.style.background = "rgba(64,110,233,0.1)")
+                (e.currentTarget.style.background = "rgba(81,111,199,0.1)")
               }
               onMouseLeave={(e) =>
                 active !== f.id &&
@@ -105,7 +105,7 @@ export function FontSwitcher() {
                       ? "'Cormorant Garamond', Georgia, serif"
                       : "'Libre Baskerville', Georgia, serif",
                   fontSize: "1.5rem",
-                  color: active === f.id ? "#406ee9" : "rgba(255,255,255,0.6)",
+                  color: active === f.id ? "#516fc7" : "rgba(255,254,241,0.6)",
                   lineHeight: 1,
                   minWidth: "28px",
                   textAlign: "center",
@@ -122,7 +122,7 @@ export function FontSwitcher() {
                         ? "'Cormorant Garamond', Georgia, serif"
                         : "'Libre Baskerville', Georgia, serif",
                     fontSize: "0.78rem",
-                    color: active === f.id ? "#ffffff" : "rgba(255,255,255,0.6)",
+                    color: active === f.id ? "#fffef1" : "rgba(255,254,241,0.6)",
                     letterSpacing: "0.02em",
                     whiteSpace: "nowrap",
                   }}
@@ -133,7 +133,7 @@ export function FontSwitcher() {
                   <div
                     style={{
                       fontSize: "0.6rem",
-                      color: "#406ee9",
+                      color: "#516fc7",
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
                       marginTop: "1px",
@@ -156,32 +156,32 @@ export function FontSwitcher() {
           width: "44px",
           height: "44px",
           borderRadius: "50%",
-          border: "1px solid rgba(64,110,233,0.4)",
+          border: "1px solid rgba(81,111,199,0.4)",
           background: open
-            ? "rgba(64,110,233,0.25)"
+            ? "rgba(81,111,199,0.25)"
             : "rgba(5,9,26,0.85)",
           backdropFilter: "blur(12px)",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#406ee9",
+          color: "#516fc7",
           fontSize: "1rem",
           fontWeight: 700,
           transition: "all 0.2s",
-          boxShadow: "0 4px 16px rgba(64,110,233,0.15)",
+          boxShadow: "0 4px 16px rgba(81,111,199,0.15)",
           fontFamily:
             active === "cormorant"
               ? "'Cormorant Garamond', Georgia, serif"
               : "'Libre Baskerville', Georgia, serif",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(64,110,233,0.8)";
-          e.currentTarget.style.boxShadow = "0 4px 20px rgba(64,110,233,0.3)";
+          e.currentTarget.style.borderColor = "rgba(81,111,199,0.8)";
+          e.currentTarget.style.boxShadow = "0 4px 20px rgba(81,111,199,0.3)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(64,110,233,0.4)";
-          e.currentTarget.style.boxShadow = "0 4px 16px rgba(64,110,233,0.15)";
+          e.currentTarget.style.borderColor = "rgba(81,111,199,0.4)";
+          e.currentTarget.style.boxShadow = "0 4px 16px rgba(81,111,199,0.15)";
         }}
       >
         Aa

@@ -25,7 +25,7 @@ function A16ZLogo() {
         style={{
           fontSize: "1.85rem",
           fontWeight: 700,
-          color: "#fff",
+          color: "#fffef1",
           letterSpacing: "-0.02em",
         }}
       >
@@ -35,7 +35,7 @@ function A16ZLogo() {
         style={{
           fontSize: "1.85rem",
           fontWeight: 700,
-          color: "#fff",
+          color: "#fffef1",
           letterSpacing: "-0.02em",
         }}
       >
@@ -56,10 +56,10 @@ function KleinerPerkinsLogo() {
           width="24"
           height="24"
           rx="2"
-          stroke="#fff"
+          stroke="#fffef1"
           strokeWidth="2"
         />
-        <path d="M14 20h8M18 14l-4 6 4 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14 20h8M18 14l-4 6 4 6" stroke="#fffef1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
         <span
@@ -67,7 +67,7 @@ function KleinerPerkinsLogo() {
             fontSize: "1rem",
             fontWeight: 700,
             letterSpacing: "0.15em",
-            color: "#fff",
+            color: "#fffef1",
             textTransform: "uppercase",
           }}
         >
@@ -78,7 +78,7 @@ function KleinerPerkinsLogo() {
             fontSize: "1rem",
             fontWeight: 700,
             letterSpacing: "0.15em",
-            color: "#fff",
+            color: "#fffef1",
             textTransform: "uppercase",
           }}
         >
@@ -95,7 +95,7 @@ function KhoslaVenturesLogo() {
       style={{
         fontSize: "1.65rem",
         fontWeight: 700,
-        color: "#fff",
+        color: "#fffef1",
         letterSpacing: "-0.01em",
       }}
     >
@@ -137,14 +137,17 @@ export function Partners({ onNavigate }: PartnersProps) {
           <p className="rv-section-eyebrow" style={{ textTransform: "none", fontSize: "0.8rem" }}>
             We are new, only on paper!
           </p>
-          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem" }}>
+          <h2
+            className="rv-section-title"
+            style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem", color: "#516fc7" }}
+          >
             WHY US
           </h2>
         </motion.div>
 
         {/* Divider */}
         <motion.div
-          className="rv-divider"
+          className="rv-divider !my-3"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.35 }}
@@ -159,7 +162,7 @@ export function Partners({ onNavigate }: PartnersProps) {
             flexDirection: "column",
             gap: "1.6rem",
             textAlign: "center",
-            padding: "2rem 1.5rem",
+            padding: "0.75rem 1.5rem 2rem",
           }}
         >
           {/* Prominent Lead-in */}
@@ -170,14 +173,16 @@ export function Partners({ onNavigate }: PartnersProps) {
             style={{
               fontSize: "clamp(0.9rem, 2.2vw, 1.2rem)",
               fontWeight: 700,
-              lineHeight: 1.5,
+              lineHeight: 1.8,
               letterSpacing: "0.08em",
-              color: "#ffffff",
+              color: "#fffef1",
               marginBottom: "0.5rem",
               textTransform: "uppercase",
             }}
           >
-            THE FIELD HAS BEEN OURS SINCE THE LAST 730+ DAYS!
+            We are new.<br />
+            But the field has been ours since<br />
+            The Last 730+ Days!
           </motion.h3>
 
           {[
@@ -213,11 +218,11 @@ export function Partners({ onNavigate }: PartnersProps) {
               renderedText = (
                 <>
                   {parts[0]}
-                  <span style={{ color: "#ffffff" }}>{para.highlight}</span>
+                  <span style={{ color: "#fffef1" }}>{para.highlight}</span>
                   {para.highlight2 ? (
                     <>
                       {parts[1].split(para.highlight2)[0]}
-                      <span style={{ color: "#ffffff" }}>{para.highlight2}</span>
+                      <span style={{ color: "#fffef1" }}>{para.highlight2}</span>
                       {parts[1].split(para.highlight2)[1]}
                     </>
                   ) : (
@@ -238,7 +243,7 @@ export function Partners({ onNavigate }: PartnersProps) {
                   fontWeight: 700,
                   lineHeight: 1.75,
                   letterSpacing: "0.06em",
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 254, 241, 0.7)",
                 }}
               >
                 {renderedText}
@@ -246,40 +251,7 @@ export function Partners({ onNavigate }: PartnersProps) {
             );
           })}
 
-          {/* Interactive CTA Link */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <motion.button
-              onClick={() => onNavigate("#contact")}
-              style={{
-                marginTop: "1.5rem",
-                background: "transparent",
-                border: "1px solid #406ee9",
-                borderRadius: "9999px",
-                padding: "0.7rem 1.8rem",
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "#ffffff",
-                cursor: "pointer",
-                boxShadow: "0 0 15px rgba(64, 110, 233, 0.1)",
-              }}
-              whileHover={{
-                borderColor: "#ffffff",
-                boxShadow: "0 0 25px rgba(64, 110, 233, 0.35)",
-                scale: 1.02,
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3 }}
-            >
-              Work with us now
-            </motion.button>
-          </motion.div>
+
         </div>
       </div>
     </div>
