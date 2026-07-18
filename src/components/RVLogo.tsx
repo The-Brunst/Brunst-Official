@@ -15,7 +15,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        gap: "1rem",
+        gap: "0.75rem",
       }}
     >
       {/* Brunst logo image */}
@@ -29,7 +29,11 @@ export function RVLogo({ className = "" }: RVLogoProps) {
           width: "100px",
           height: "100px",
           objectFit: "contain",
-          filter: "brightness(0) saturate(100%) invert(97%) sepia(15%) saturate(400%) hue-rotate(15deg) brightness(102%)",
+          filter: "brightness(0) saturate(100%) invert(40%) sepia(98%) saturate(351%) hue-rotate(187deg) brightness(90%) contrast(95%)",
+          clipPath: "inset(0% 0% 18% 0%)",
+          marginLeft: "-24px",
+          marginRight: "-9px",
+          transform: "translateY(7px)",
         }}
       />
 
@@ -43,7 +47,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
       >
         <span
           style={{
-            fontSize: "clamp(1.35rem, 2.5vw, 1.95rem)",
+            fontSize: "clamp(1.1rem, 2vw, 1.6rem)",
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
@@ -54,7 +58,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
         </span>
         <span
           style={{
-            fontSize: "clamp(1.35rem, 2.5vw, 1.95rem)",
+            fontSize: "clamp(1.1rem, 2vw, 1.6rem)",
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",

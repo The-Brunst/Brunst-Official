@@ -75,7 +75,7 @@ export function Media({ onNavigate }: MediaProps) {
         <div
           style={{
             width: "100%",
-            maxWidth: "680px",
+            maxWidth: "520px",
             display: "flex",
             flexDirection: "column",
             gap: "1.6rem",
