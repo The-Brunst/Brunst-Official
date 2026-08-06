@@ -13,23 +13,44 @@ export function RVBackground() {
         overflow: "hidden",
       }}
     >
-      {/* Background video */}
+      {/* Mobile/Portrait video background */}
       <video
         autoPlay
         muted
         loop
         playsInline
         poster="/bg-poster.jpg"
+        className="block md:landscape:hidden"
         style={{
           position: "absolute",
           inset: 0,
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          objectFit: "fill",
           objectPosition: "center",
         }}
       >
-        <source src="/bg.mp4" type="video/mp4" />
+        <source src="/BUILT-Mobile.mp4" type="video/mp4" />
+      </video>
+
+      {/* Desktop/Landscape video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/bg-poster.jpg"
+        className="hidden md:landscape:block"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "fill",
+          objectPosition: "center",
+        }}
+      >
+        <source src="/Web - landscape.mp4" type="video/mp4" />
       </video>
 
       {/* Dark blue overlay — derived from #516fc7 at very low lightness */}
