@@ -3,9 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
-import { RVLogo } from "../RVLogo";
-import { RVBackground } from "../Backgrounds";
-import { RVFooter } from "../Footer";
 
 interface ContactProps {
   onNavigate: (hash: string) => void;

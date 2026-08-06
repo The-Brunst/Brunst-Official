@@ -2,9 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { RVLogo } from "../RVLogo";
-import { RVBackground } from "../Backgrounds";
-import { RVFooter } from "../Footer";
 
 interface HeroProps {
   onNavigate: (hash: string) => void;
@@ -44,7 +41,7 @@ export function Hero({ onNavigate }: HeroProps) {
           fontWeight: 700,
         }}
       >
-        BRINGING TOGETHER THE WORLD’S CREATIVE DIVERSITY
+        BRINGING TOGETHER <br className="block md:hidden" /> THE WORLD’S CREATIVE DIVERSITY
       </motion.p>
 
       {/* 2×2 Nav buttons — flex-wrap so they naturally reflow on mobile (rosberg.ventures approach) */}

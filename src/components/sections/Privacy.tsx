@@ -70,7 +70,9 @@ export function Privacy({ onNavigate }: PrivacyProps) {
           className="text-center mb-1"
         >
           <p className="rv-section-eyebrow">LEGAL</p>
-          <h2 className="rv-section-title">PRIVACY POLICY</h2>
+          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem" }}>
+            PRIVACY POLICY
+          </h2>
           <p
             style={{
               fontSize: "0.82rem",

@@ -30,7 +30,9 @@ export function FontSwitcher() {
   useEffect(() => {
     const saved = localStorage.getItem("bs-font") as FontOption | null;
     if (saved === "baskerville" || saved === "cormorant") {
-      setActive(saved);
+      setTimeout(() => {
+        setActive(saved);
+      }, 0);
     }
   }, []);
 

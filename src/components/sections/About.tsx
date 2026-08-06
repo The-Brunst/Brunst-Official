@@ -2,9 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { RVLogo } from "../RVLogo";
-import { RVBackground } from "../Backgrounds";
-import { RVFooter } from "../Footer";
 
 interface AboutProps {
   onNavigate: (hash: string) => void;
@@ -100,15 +97,15 @@ export function About({ onNavigate }: AboutProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-center mb-1"
+          className="text-center mb-1 w-full"
         >
           <p className="rv-section-eyebrow">Write. Create. Play. Design</p>
           <h2
-            className="rv-section-title"
+            className="rv-section-title md:whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.1rem, 3.5vw, 1.6rem)",
+              fontSize: "clamp(1.1rem, 3.2vw, 1.45rem)",
               lineHeight: 1.3,
-              whiteSpace: "nowrap",
+              marginTop: "0.5rem",
               color: "#fffef1",
             }}
           >
@@ -140,13 +137,8 @@ export function About({ onNavigate }: AboutProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+              className="flex flex-col items-center text-center gap-3 py-4 px-2 md:px-6"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                padding: "1rem 1.5rem",
-                gap: "0.75rem",
                 borderBottom: i < cards.length - 1
                   ? "1px solid rgba(81, 111, 199, 0.08)"
                   : "none",
@@ -168,16 +160,7 @@ export function About({ onNavigate }: AboutProps) {
                 >
                   {card.icon}
                 </div>
-                <h3
-                  style={{
-                    fontSize: "0.95rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "#516fc7",
-                    margin: 0,
-                  }}
-                >
+                <h3 className="text-[clamp(0.8rem,3.6vw,1.05rem)] font-bold tracking-[0.08em] md:tracking-[0.18em] uppercase text-[#516fc7] m-0 leading-[1.4] whitespace-nowrap">
                   {card.title}
                 </h3>
               </div>
@@ -194,13 +177,7 @@ export function About({ onNavigate }: AboutProps) {
                 {card.services.map((service) => (
                   <span
                     key={service}
-                    style={{
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "rgba(255, 254, 241, 0.75)",
-                    }}
+                    className="text-[0.75rem] md:text-[0.85rem] font-bold tracking-[0.1em] uppercase text-[#fffef1]/75 text-center"
                   >
                     {service}
                   </span>

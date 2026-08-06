@@ -2,9 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { RVLogo } from "../RVLogo";
-import { RVBackground } from "../Backgrounds";
-import { RVFooter } from "../Footer";
 
 interface DisclosuresProps {
   onNavigate: (hash: string) => void;
@@ -58,7 +55,7 @@ export function Disclosures({ onNavigate }: DisclosuresProps) {
           style={{ maxWidth: "600px" }}
         >
           <p className="rv-section-eyebrow">SUSTAINABLE FINANCE</p>
-          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)" }}>
+          <h2 className="rv-section-title" style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)", marginTop: "0.5rem" }}>
             DISCLOSURE REGULATIONS (SFDR)
           </h2>
           <p

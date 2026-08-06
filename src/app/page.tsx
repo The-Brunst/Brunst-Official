@@ -54,7 +54,7 @@ export default function Home() {
 
       {/* Global centered wrapper layout matching site-main > inner of rosberg.ventures */}
       <div
-        className="w-full max-w-[40rem] px-6 md:px-12 py-16 md:py-24 flex flex-col items-center relative z-10"
+        className="w-full max-w-[40rem] px-3 md:px-12 py-16 md:py-24 flex flex-col items-center relative z-10"
         style={{
           minHeight: "100vh",
           display: "flex",

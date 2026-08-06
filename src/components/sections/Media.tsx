@@ -2,32 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { RVLogo } from "../RVLogo";
-import { RVBackground } from "../Backgrounds";
-import { RVFooter } from "../Footer";
 
 interface MediaProps {
   onNavigate: (hash: string) => void;
 }
-
-const articles = [
-  {
-    headline: "Nico Brunst revs up €75m venture capital fund",
-    source: "The Times",
-    url: "https://www.thetimes.co.uk",
-  },
-  {
-    headline: 'NICO BrunstS „FUND OF FUNDS"',
-    source: "Forbes",
-    url: "https://www.forbes.at",
-  },
-  {
-    headline:
-      "Deutschlands prominenteste Unternehmer investieren in Brunsts Fonds – was kann er wirklich?",
-    source: "Handelsblatt",
-    url: "https://www.handelsblatt.com",
-  },
-];
 
 export function Media({ onNavigate }: MediaProps) {
   return (
