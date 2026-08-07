@@ -88,7 +88,7 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
 
         {/* Instagram Link */}
         <a
-          href="https://www.instagram.com/brunst.studios"
+          href="https://www.instagram.com/brunststudios?igsh=MTZ0OHQ0Z3Ztdzhldw%3D%3D&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
           style={{
