@@ -78,8 +78,8 @@ export function Partners({ onNavigate }: PartnersProps) {
             }}
           >
             We are new.<br />
-            But the field has been ours since<br />
-            The Last 730+ Days!
+            But the field has been ours<br />
+            since The Last 730+ Days!
           </motion.h3>
 
           {[
