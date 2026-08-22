@@ -50,12 +50,12 @@ jobs:
       - name: Verify Build
         run: |
           ls -la
-          ls -la dist
+          ls -la .next
 
       # Archive
       - name: Create Archive
         run: |
-          tar -czf frontend.tar.gz -C dist .
+          tar -czf frontend.tar.gz -C .next .
           ls -lh frontend.tar.gz
 
       # Release Tag
