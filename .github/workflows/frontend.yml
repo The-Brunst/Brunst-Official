@@ -26,11 +26,12 @@ jobs:
         run: |
           echo "${{ secrets.REACT_ENV_FILE }}" > .env
 
-      # Setup Node
+      # Setup Node with caching
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
       # Verify Node
       - name: Verify Node Version
@@ -40,22 +41,22 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      # Build
-      - name: Build React
+      # Build Next.js
+      - name: Build Next.js
         run: npm run build
 
       # Verify Build
       - name: Verify Build
         run: |
           ls -la
-          ls -la .next
+          ls -la out
 
       # Archive
       - name: Create Archive
         run: |
-          tar -czf frontend.tar.gz -C .next .
+          tar -czf frontend.tar.gz -C out .
           ls -lh frontend.tar.gz
 
       # Release Tag
