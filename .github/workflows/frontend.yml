@@ -11,14 +11,12 @@ permissions:
 env:
   AWS_REGION: ap-south-2
   EC2_TARGET_DIR: /var/www/brunst-main
-  NEXT_PORT: 3000
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-
       # Checkout
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -44,47 +42,20 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Build Next.js
-      - name: Build Next.js
+      # Build
+      - name: Build React
         run: npm run build
 
       # Verify Build
       - name: Verify Build
         run: |
-          echo "===== NEXT.JS BUILD ====="
+          ls -la
           ls -la .next
 
-          echo "===== PACKAGE FILES ====="
-          ls -la package.json
-
-          if [ -f package-lock.json ]; then
-            echo "package-lock.json found"
-          fi
-
-          if [ -d public ]; then
-            echo "public directory found"
-            ls -la public
-          fi
-
-      # Create Deployment Package
-      - name: Create Deployment Package
+      # Archive
+      - name: Create Archive
         run: |
-          mkdir -p deployment
-
-          cp -r .next deployment/.next
-          cp package.json deployment/package.json
-
-          if [ -f package-lock.json ]; then
-            cp package-lock.json deployment/package-lock.json
-          fi
-
-          if [ -d public ]; then
-            cp -r public deployment/public
-          fi
-
-          tar -czf frontend.tar.gz -C deployment .
-
-          echo "===== DEPLOYMENT PACKAGE ====="
+          tar -czf frontend.tar.gz -C .next .
           ls -lh frontend.tar.gz
 
       # Release Tag
@@ -92,7 +63,7 @@ jobs:
         run: |
           echo "RELEASE_TAG=frontend-${GITHUB_SHA}" >> $GITHUB_ENV
 
-      # Create GitHub Release
+      # Create Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -112,8 +83,7 @@ jobs:
 
       # Verify AWS
       - name: Verify AWS Identity
-        run: |
-          aws sts get-caller-identity
+        run: aws sts get-caller-identity
 
       # Verify SSM
       - name: Verify SSM
@@ -122,79 +92,44 @@ jobs:
             --region $AWS_REGION \
             --query "InstanceInformationList[*].InstanceId"
 
-      # Deploy via SSM
+      # Deploy
       - name: Deploy via SSM
         id: deploy
         run: |
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
-            --comment "Next.js Frontend Deployment" \
+            --comment "Frontend Deployment" \
             --parameters "commands=[
             \"set -e\",
             \"echo ===== START DEPLOY =====\",
-
             \"RELEASE_URL=https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/frontend.tar.gz\",
             \"echo Download URL: \$RELEASE_URL\",
+            \"mkdir -p /tmp/frontend\",
+            \"rm -rf /tmp/frontend/*\",
 
-            \"sudo mkdir -p /tmp/frontend\",
-            \"sudo rm -rf /tmp/frontend/*\",
+            \"for i in {1..10}; do curl -L \$RELEASE_URL -o /tmp/frontend/frontend.tar.gz && break; echo Waiting for GitHub Release...; sleep 5; done\",
 
-            \"for i in {1..10}; do curl -fL \$RELEASE_URL -o /tmp/frontend/frontend.tar.gz && break; echo Waiting for GitHub Release...; sleep 5; done\",
-
-            \"ls -lh /tmp/frontend/frontend.tar.gz\",
+            \"ls -lh /tmp/frontend\",
 
             \"sudo mkdir -p $EC2_TARGET_DIR\",
 
-            \"sudo rm -rf $EC2_TARGET_DIR/.next\",
-            \"sudo rm -rf $EC2_TARGET_DIR/public\",
-            \"sudo rm -f $EC2_TARGET_DIR/package.json\",
-            \"sudo rm -f $EC2_TARGET_DIR/package-lock.json\",
+            \"sudo rm -rf $EC2_TARGET_DIR/*\",
 
             \"sudo tar -xzf /tmp/frontend/frontend.tar.gz -C $EC2_TARGET_DIR\",
 
-            \"cd $EC2_TARGET_DIR\",
+            \"rm -rf /tmp/frontend\",
 
-            \"echo ===== INSTALL PRODUCTION DEPENDENCIES =====\",
-
-            \"if [ -f package-lock.json ]; then sudo npm ci --omit=dev; else sudo npm install --omit=dev; fi\",
-
-            \"echo ===== CHECK DEPLOYMENT =====\",
+            \"echo Deployment Complete\",
 
             \"ls -la $EC2_TARGET_DIR\",
-            \"ls -la $EC2_TARGET_DIR/.next\",
-
-            \"echo ===== FIX PERMISSIONS =====\",
-
-            \"sudo chown -R ec2-user:ec2-user $EC2_TARGET_DIR\",
-
-            \"echo ===== STOP OLD NEXT.JS PROCESS =====\",
-
-            \"sudo systemctl stop brunst-next 2>/dev/null || true\",
-
-            \"echo ===== START NEXT.JS =====\",
-
-            \"sudo systemctl start brunst-next\",
-
-            \"sleep 5\",
-
-            \"echo ===== CHECK NEXT.JS SERVICE =====\",
-
-            \"sudo systemctl status brunst-next --no-pager\",
-
-            \"echo ===== TEST NEXT.JS =====\",
-
-            \"curl -I http://127.0.0.1:$NEXT_PORT\",
-
-            \"echo ===== TEST NGINX =====\",
 
             \"sudo nginx -t\",
 
             \"sudo systemctl reload nginx\",
 
-            \"rm -rf /tmp/frontend\",
+            \"echo ===== FINISHED =====\"
 
-            \"echo ===== DEPLOYMENT COMPLETE =====\"
             ]" \
             --query "Command.CommandId" \
             --output text)
@@ -206,7 +141,7 @@ jobs:
       - name: Wait for Deployment
         run: sleep 15
 
-      # Deployment Status
+      # Status
       - name: Check Deployment Status
         run: |
           aws ssm list-command-invocations \
