@@ -10,7 +10,7 @@ permissions:
 
 env:
   AWS_REGION: ap-south-2
-  EC2_TARGET_DIR: /var/www/frontend
+  EC2_TARGET_DIR: /var/www/brunst-main
 
 jobs:
   build-and-deploy:
