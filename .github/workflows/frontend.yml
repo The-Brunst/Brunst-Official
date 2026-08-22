@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
+          cache: "npm"
 
       # Verify Node
       - name: Verify Node Version
@@ -41,7 +41,7 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       # Build Next.js
       - name: Build Next.js
