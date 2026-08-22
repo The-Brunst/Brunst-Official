@@ -51,12 +51,12 @@ jobs:
       - name: Verify Build
         run: |
           ls -la
-          ls -la .next
+          ls -la out
 
       # Archive
       - name: Create Archive
         run: |
-          tar -czf frontend.tar.gz -C .next .
+          tar -czf frontend.tar.gz -C out .
           ls -lh frontend.tar.gz
 
       # Release Tag
