@@ -31,6 +31,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
       # Verify Node
       - name: Verify Node Version
@@ -40,7 +41,7 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # Build
       - name: Build React
