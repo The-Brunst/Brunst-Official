@@ -19,7 +19,6 @@ export function RVBackground() {
         muted
         loop
         playsInline
-        poster="/bg-poster.jpg"
         className="block md:landscape:hidden"
         style={{
           position: "absolute",
@@ -30,7 +29,7 @@ export function RVBackground() {
           objectPosition: "center",
         }}
       >
-        <source src="/BUILT-Mobile.mp4" type="video/mp4" />
+        <source src="/web - mobile .mp4" type="video/mp4" />
       </video>
 
       {/* Desktop/Landscape video background */}
@@ -39,7 +38,6 @@ export function RVBackground() {
         muted
         loop
         playsInline
-        poster="/bg-poster.jpg"
         className="hidden md:landscape:block"
         style={{
           position: "absolute",

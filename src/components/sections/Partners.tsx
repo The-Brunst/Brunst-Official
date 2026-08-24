@@ -31,9 +31,9 @@ export function Partners({ onNavigate }: PartnersProps) {
           className="text-center mb-2"
           style={{ maxWidth: "800px" }}
         >
-          <p className="rv-section-eyebrow" style={{ textTransform: "none", fontSize: "0.8rem" }}>
+          {/* <p className="rv-section-eyebrow" style={{ textTransform: "none", fontSize: "0.8rem" }}>
             We are new, only on paper!
-          </p>
+          </p> */}
           <h2
             className="rv-section-title"
             style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)", marginTop: "0.5rem", color: "#516fc7" }}

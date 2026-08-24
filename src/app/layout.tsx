@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Rajdhani } from "next/font/google";
 import { FontSwitcher } from "@/components/FontSwitcher";
 import "./globals.css";
@@ -8,6 +8,10 @@ const rajdhani = Rajdhani({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#516fc7",
+};
 
 export const metadata: Metadata = {
   title: "Brunst Studios | Bringing together the world’s creative diversity",

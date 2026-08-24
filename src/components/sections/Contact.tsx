@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 interface ContactProps {
   onNavigate: (hash: string) => void;
@@ -23,7 +24,6 @@ export function Contact({ onNavigate }: ContactProps) {
     subject: "",
     message: "",
     acceptPrivacy: false,
-    subscribeNewsletter: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,7 +35,12 @@ export function Contact({ onNavigate }: ContactProps) {
   ) => {
     const { name, value } = e.target;
     setForm((p) => ({ ...p, [name]: value }));
-    if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
+    setErrors((p) => {
+      const copy = { ...p };
+      if (copy[name]) delete copy[name];
+      if (copy.submit) delete copy.submit;
+      return copy;
+    });
   };
 
   const validate = () => {
@@ -53,7 +58,31 @@ export function Contact({ onNavigate }: ContactProps) {
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitting(true);
-    setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1800);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_mmrzabw";
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_btozfnm";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "WtesAZB-CtDElXpCQ";
+
+    const templateParams = {
+      from_name: form.name,
+      reply_to: form.email,
+      subject: form.subject || "General Inquiry",
+      message: form.message,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setSubmitting(false);
+          setSubmitted(true);
+        },
+        (error) => {
+          console.error('FAILED...', error);
+          setSubmitting(false);
+          setErrors({ submit: "Failed to send message. Please try again." });
+        }
+      );
   };
 
   const inputStyle: React.CSSProperties = {
@@ -411,16 +440,26 @@ export function Contact({ onNavigate }: ContactProps) {
                 {/* Checkboxes */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", paddingLeft: "0.25rem" }}>
                   {/* Privacy */}
-                  <label style={{ display: "flex", alignItems: "center", gap: "0.7rem", cursor: "pointer" }}>
+                  <div
+                    onClick={() => {
+                      setForm((p) => ({ ...p, acceptPrivacy: !p.acceptPrivacy }));
+                      setErrors((p) => {
+                        const copy = { ...p };
+                        if (copy.acceptPrivacy) delete copy.acceptPrivacy;
+                        if (copy.submit) delete copy.submit;
+                        return copy;
+                      });
+                    }}
+                    style={{ display: "flex", alignItems: "center", gap: "0.7rem", cursor: "pointer", userSelect: "none" }}
+                  >
                     <div
-                      onClick={() => setForm((p) => ({ ...p, acceptPrivacy: !p.acceptPrivacy }))}
                       style={{
                         width: "18px", height: "18px",
                         border: `1.5px solid ${form.acceptPrivacy ? "#516fc7" : "rgba(81,111,199,0.35)"}`,
                         borderRadius: "50%",
                         background: form.acceptPrivacy ? "#516fc7" : "transparent",
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        flexShrink: 0, cursor: "pointer", transition: "all 0.2s",
+                        flexShrink: 0, transition: "all 0.2s",
                       }}
                     >
                       {form.acceptPrivacy && <Check size={10} style={{ color: "#000" }} strokeWidth={3} />}
@@ -435,32 +474,12 @@ export function Contact({ onNavigate }: ContactProps) {
                         PRIVACY POLICY
                       </button>
                     </span>
-                  </label>
+                  </div>
                   {errors.acceptPrivacy && (
                     <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#ff4444", letterSpacing: "0.1em" }}>
                       {errors.acceptPrivacy}
                     </p>
                   )}
-
-                  {/* Newsletter */}
-                  <label style={{ display: "flex", alignItems: "center", gap: "0.7rem", cursor: "pointer" }}>
-                    <div
-                      onClick={() => setForm((p) => ({ ...p, subscribeNewsletter: !p.subscribeNewsletter }))}
-                      style={{
-                        width: "18px", height: "18px",
-                        border: `1.5px solid ${form.subscribeNewsletter ? "#516fc7" : "rgba(81,111,199,0.35)"}`,
-                        borderRadius: "50%",
-                        background: form.subscribeNewsletter ? "#516fc7" : "transparent",
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        flexShrink: 0, cursor: "pointer", transition: "all 0.2s",
-                      }}
-                    >
-                      {form.subscribeNewsletter && <Check size={10} style={{ color: "#000" }} strokeWidth={3} />}
-                    </div>
-                    <span style={{ fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,254,241,0.5)" }}>
-                      SUBSCRIBE TO NEWSLETTER
-                    </span>
-                  </label>
                 </div>
 
                 {/* Submit */}
@@ -475,6 +494,11 @@ export function Contact({ onNavigate }: ContactProps) {
                     ) : "SUBMIT"}
                   </button>
                 </div>
+                {errors.submit && (
+                  <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#ff4444", letterSpacing: "0.1em", textAlign: "center", marginTop: "0.8rem" }}>
+                    {errors.submit}
+                  </p>
+                )}
               </motion.form>
             ) : (
               <motion.div

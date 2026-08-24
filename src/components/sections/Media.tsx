@@ -110,6 +110,7 @@ export function Media({ onNavigate }: MediaProps) {
           >
             <motion.button
               onClick={() => onNavigate("#contact")}
+              className="whitespace-normal md:whitespace-nowrap"
               style={{
                 marginTop: "1.5rem",
                 background: "transparent",
@@ -123,6 +124,7 @@ export function Media({ onNavigate }: MediaProps) {
                 color: "#fffef1",
                 cursor: "pointer",
                 boxShadow: "0 0 15px rgba(81, 111, 199, 0.1)",
+                lineHeight: "1.6",
               }}
               whileHover={{
                 borderColor: "#fffef1",
@@ -132,7 +134,7 @@ export function Media({ onNavigate }: MediaProps) {
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              Connect with us now to book a free trial.
+              Connect with us now <br className="block md:hidden" /> to book a free trial.
             </motion.button>
           </motion.div>
         </div>

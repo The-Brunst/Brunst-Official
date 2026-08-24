@@ -26,12 +26,12 @@ jobs:
         run: |
           echo "${{ secrets.REACT_ENV_FILE }}" > .env
 
-      # Setup Node with caching
+      # Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "npm"
+          cache: 'npm'
 
       # Verify Node
       - name: Verify Node Version
@@ -43,8 +43,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Build Next.js
-      - name: Build Next.js
+      # Build
+      - name: Build React
         run: npm run build
 
       # Verify Build
