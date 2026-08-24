@@ -71,7 +71,7 @@ export function RVFooter({ onNavigate }: RVFooterProps) {
       <div style={{ display: "flex", gap: "1.2rem", alignItems: "center" }}>
         {/* Plus / Crunchbase Link */}
         <a
-          href="https://www.crunchbase.com/organization/Brunst-ventures"
+          href="https://www.crunchbase.com/organization/Brunst-studios"
           target="_blank"
           rel="noopener noreferrer"
           style={{

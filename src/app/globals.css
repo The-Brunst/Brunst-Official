@@ -203,8 +203,6 @@ body *, body *::before, body *::after {
   color: var(--accent);
 }
 
-/* RV Nav Buttons (on Hero) */
-/* Fixed width so buttons naturally wrap on small screens — same approach as rosberg.ventures */
 .rv-nav-btn {
   width: 11.5rem;
   height: 3rem;
