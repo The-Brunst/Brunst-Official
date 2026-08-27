@@ -44,7 +44,7 @@ export function Hero({ onNavigate }: HeroProps) {
         BRINGING TOGETHER <br className="block md:hidden" /> THE WORLD’S CREATIVE DIVERSITY
       </motion.p>
 
-      {/* 2×2 Nav buttons — flex-wrap so they naturally reflow on mobile (rosberg.ventures approach) */}
+      
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}

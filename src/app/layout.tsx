@@ -16,12 +16,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Brunst Studios | Bringing together the world’s creative diversity",
   description:
-    "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
+    "Brunst Studios is home to a world of creative fields—bringing together brands, interiors, authors, and athletes under a single visionary creative agency.",
   metadataBase: new URL("https://brunst.studios"),
   openGraph: {
     title: "Brunst Studios | Bringing together the world’s creative diversity",
     description:
-      "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
+      "Brunst Studios is home to a world of creative fields—bringing together brands, interiors, authors, and athletes under a single visionary creative agency.",
     siteName: "Brunst Studios",
     locale: "en_US",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brunst Studios | Bringing together the world’s creative diversity",
     description:
-      "Brunst Studios is home to a world of creative fields—bringing together authors, brands, athletes, and interiors under a single visionary creative agency.",
+      "Brunst Studios is home to a world of creative fields—bringing together brands, interiors, authors, and athletes under a single visionary creative agency.",
   },
 };
 
