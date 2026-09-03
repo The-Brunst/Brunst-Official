@@ -10,7 +10,10 @@ const rajdhani = Rajdhani({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#516fc7",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#516fc7" },
+    { media: "(prefers-color-scheme: dark)", color: "#516fc7" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -55,6 +58,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap"
           rel="stylesheet"
         />
+        <meta name="theme-color" content="#516fc7" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#516fc7" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#516fc7" />
+        <meta name="msapplication-navbutton-color" content="#516fc7" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="min-h-full antialiased">
         {children}

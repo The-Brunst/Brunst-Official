@@ -3,11 +3,11 @@
 import React from "react";
 import Image from "next/image";
 
-interface RVLogoProps {
+interface BrunstLogoProps {
   className?: string;
 }
 
-export function RVLogo({ className = "" }: RVLogoProps) {
+export function BrunstLogo({ className = "" }: BrunstLogoProps) {
   return (
     <div
       className={className}
@@ -47,7 +47,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
       >
         <span
           style={{
-            fontSize: "clamp(1.1rem, 2vw, 1.6rem)",
+            fontSize: "clamp(1.45rem, 2.8vw, 2.1rem)",
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
@@ -58,7 +58,7 @@ export function RVLogo({ className = "" }: RVLogoProps) {
         </span>
         <span
           style={{
-            fontSize: "clamp(1.1rem, 2vw, 1.6rem)",
+            fontSize: "clamp(1.45rem, 2.8vw, 2.1rem)",
             fontWeight: 700,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
@@ -71,3 +71,6 @@ export function RVLogo({ className = "" }: RVLogoProps) {
     </div>
   );
 }
+
+// Alias for backward compatibility
+export const RVLogo = BrunstLogo;

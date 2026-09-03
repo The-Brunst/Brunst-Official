@@ -13,7 +13,7 @@ import { Contact } from "@/components/sections/Contact";
 import { Disclosures } from "@/components/sections/Disclosures";
 import { Privacy } from "@/components/sections/Privacy";
 import { RVBackground } from "@/components/Backgrounds";
-import { RVLogo } from "@/components/RVLogo";
+import { BrunstLogo } from "@/components/BrunstLogo";
 import { RVFooter } from "@/components/Footer";
 
 export default function Home() {
@@ -66,7 +66,7 @@ export default function Home() {
       >
         {/* Global static header (logo) */}
         <div style={{ marginBottom: "1rem" }}>
-          <RVLogo />
+          <BrunstLogo />
         </div>
 
         {/* Transitioning Section Content */}
